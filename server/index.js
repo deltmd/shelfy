@@ -10,8 +10,13 @@ app.use(bodyParser.json());
 app.use(cors());
 massive(process.env.CONNECTION_STRING).then(datab => app.set('datab', datab));
 
-app.get('/api/shelves/:id', shelf_controller.getBins );
-app.get('/api/test', shelf_controller.testFn);
+// shelf
+app.get('/api/shelf/:id', shelf_controller.getBins );
+// bins 
+app.get('/api/bin/:id', shelf_controller.getBin)
+app.put('/api/bin/:id', shelf_controller.updateBin) //takes object with productName, price, imgurl
+app.delete('/api/bin/:id', shelf_controller.deleteBin)
+app.post('/api/bin/:id', shelf_controller.createBin) //takes obj with productName, price, imgurl, shelfId
 
 
 const port = process.env.PORT || 3000;
