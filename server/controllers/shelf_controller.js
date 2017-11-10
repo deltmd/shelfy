@@ -35,7 +35,7 @@ module.exports = {
             .then(() => {
                 //get update bin obj to return
                 datab.get_bin([shelfid, binid])
-                .then((bin)=>res.status(200).send(bin))
+                    .then((bin) => res.status(200).send(bin))
             })
             .catch(() => res.status(500).send());
     },
@@ -58,4 +58,4 @@ module.exports = {
             .catch(() => res.status(500).send());
     }
 
-}
+};
