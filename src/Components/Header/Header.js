@@ -3,13 +3,13 @@ class Header extends Component {
   constructor() {
     super()
     this.state={
-      test: 'test'
+      depth: 1
     }
   }
   render(){
     return(
       <div>
-        {this.state.test}
+        {this.state.depth}
       </div>
     )
   }
