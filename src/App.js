@@ -5,7 +5,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state={
-      depth: 1
+      depth: 3
     }
   }
   
@@ -18,7 +18,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header depth={this.state.depth}/>
+        <Header depth={this.state.depth} shelf='Shelf A' bin='Bin 1'/>
       </div>
     );
   }
