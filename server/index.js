@@ -1,14 +1,14 @@
-const express = require('express')
-      bodyParser = require('body-parser')
-      cors = require('cors')
-      massive = require('massive')
-      shelf_controller = require('./controllers/shelf_controller.js')
-      require('dotenv').config()
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const massive = require('massive');
+const shelf_controller = require('./controllers/shelf_controller.js');
+require('dotenv').config();
 
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
-massive(process.env.CONNECTION_STRING).then(db => app.set('db', db));
+massive(process.env.CONNECTION_STRING).then(datab => app.set('datab', datab));
 
 app.get('/api/shelves/:id', shelf_controller.getBins );
 app.get('/api/test', shelf_controller.testFn);
