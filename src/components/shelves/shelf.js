@@ -1,38 +1,43 @@
-import React from 'react';
-import {Switch, Link} from 'react-router-dom'
+import React, {Component} from 'react';
+import { Switch, Link } from 'react-router-dom';
+import axios from 'axios'
 
 
 
-export default class extends Shelf extends component {
-  constructor (){
-    super ()
+export default class Shelf extends Component {
+  constructor() {
+    super()
     this.state = {
       binId: [],
     }
   }
 
   componentDidMount() {
-    axios.get( 'api.url/shelfId').then(
+    axios.get(`/api/shelf/${this.props.letter}`).then(res =>{
       this.setState({
-        binId: binId
-
+        binId: res.data
+        
       })
+    }
       // this data comes from the axios calls, make sure the properties match what is in the data table
-  )}
+    )
+  }
 
-  render (){
+  render() {
     const binId = this.state.binId.map((e, i) => {
+      return (
+        <div>
+          <Link key={i} to={`./shelf/${binId}`}>
+            <h3>{binId}</h3>
+          </Link>
+        </div>
+      )
+    })
     return (
       <div>
-        <div>
-            <Link to= { `./shelf/${e.binId}` }>
-              <h3>{e.binId}</h3>
-            </Link>
-        </div>
-        <button>Edit and Delete Buttons This will be DYNAMIC in size and function</button>
-        <button>Edit and Delete Buttons This will be DYNAMIC in size and function</button>
-        {/* how to set the right number of bins so that it is dynamic and can display all available bins? */}
+       {binId}
       </div>
+      
     )
   }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Header from './Components/Header/Header';
+import Header from './components/Header/Header';
+import Container from './components/shelves/container'
 
 class App extends Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class App extends Component {
     return (
       <div>
         <Header depth={this.state.depth} shelf='Shelf A' bin='Bin 1'/>
+        <Container />
       </div>
     );
   }
