@@ -12,10 +12,7 @@ export default class Router extends Component {
         <Route name='Container' exact path='/' render={() => (
           <Container depthHandler={this.props.depthHandler}/>
         )} />
-        <Route name='A' path='/shelf/A' component={Shelf} />
-        <Route name='B' path='/shelf/B' component={Shelf} />
-        <Route name='C' path='/shelf/C' component={Shelf} />
-        <Route name='D' path='/shelf/D' component={Shelf} />
+        <Route name='A' path='/shelf/:id' component={Shelf} />
       </Switch>
     )
   }

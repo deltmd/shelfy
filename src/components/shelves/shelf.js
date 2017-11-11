@@ -13,7 +13,8 @@ export default class Shelf extends Component {
   }
 
   componentDidMount() {
-    axios.get(`/api/shelf/${this.props.letter}`).then(res =>{
+    axios.get(`/api/shelf/${this.props.match.params.id}`).then(res =>{
+      console.log(res.data);
       this.setState({
         binId: res.data
         
@@ -26,11 +27,9 @@ export default class Shelf extends Component {
   render() {
     const binId = this.state.binId.map((e, i) => {
       return (
-        <div>
-          <Link key={i} to={`./shelf/${binId}`}>
-            <h3>{binId}</h3>
-          </Link>
-        </div>
+        <Link key={i} to={`./shelf/${binId}`}>
+          <h3>{e.productname}</h3>
+        </Link>
       )
     })
     return (

@@ -19,5 +19,5 @@ app.delete('/api/bin/:id', shelf_controller.deleteBin)
 app.post('/api/bin/:id', shelf_controller.createBin) //takes obj with productName, price, imgurl, shelfId
 
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 app.listen(port, ()=> {console.log(`Server listening on port ${port}.`)})
