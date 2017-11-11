@@ -9,7 +9,7 @@ class Header extends Component {
       depth: this.props.depth
     }
   }
-  componentWillRecieveProps(props){
+  componentWillReceiveProps(props){
     console.log(this.props.depth);
     this.setState({
       depth: props.depth
