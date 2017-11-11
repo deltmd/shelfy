@@ -9,6 +9,12 @@ class Header extends Component {
       depth: this.props.depth
     }
   }
+  componentWillRecieveProps(props){
+    console.log(this.props.depth);
+    this.setState({
+      depth: props.depth
+    })
+  }
   render(){
     return(
       <div>

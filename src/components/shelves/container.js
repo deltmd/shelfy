@@ -1,24 +1,36 @@
-import React from 'react';
-import {Switch, Route, Link} from 'react-router-dom';
-import Shelf from './shelf.js';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+// import Shelf from './shelf.js';
 
+import './container.css'
 
+export default class Container extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+    }
+  }
 
-export default function Container() {
+  render() {
     return (
-      <div>
-        <Route name = 'A' path = '/shelf/:id' component = {Shelf} />
-        <Link params = {{letter:'A'}} to='/shelf/A ' className = 'container_container-shelf' >Shelf A</Link>
-        <Route name= 'B' path = '/shelfFrame/:id' component = {Shelf} />
-        <Link params = {{letter:'B'}} to='/B' className = 'container_container-shelf'>Shelf B</Link>
-        <Route name='C' path = '/shelfFrame/:id' component = {Shelf} />
-        <Link params = {{letter:'C'}} to='/C' className = 'container_container-shelf'  >Shelf C</Link>
-        <Route name='D' path = '/shelfFrame/:id' component = {Shelf} />
-        <Link params = {{letter:'D'}} to='/D' className = 'container_container-shelf'>Shelf D</Link>
+      <div className='Container_shelves-wrapper'>
+        <Link params={{ letter: 'A' }} to='/shelf/A' className='container_container-shelf'>
+          <button onClick={() => this.props.depthHandler(2)}>Shelf A</button>
+        </Link>
+        <Link params={{ letter: 'B' }} to='/shelf/B' className='container_container-shelf'>
+          <button onClick={() => this.props.depthHandler(2)}>Shelf B</button>
+        </Link>
+        <Link params={{ letter: 'C' }} to='/shelf/C' className='container_container-shelf'>
+          <button onClick={() => this.props.depthHandler(2)}>Shelf C</button>
+        </Link>
+        <Link params={{ letter: 'D' }} to='/shelf/D' className='container_container-shelf'>
+          <button onClick={() => this.props.depthHandler(2)}>Shelf D</button>
+        </Link>
       </div>
     )
   }
+}
 
 
 //   all of these links are static and do not rely on specific ids, just files paths
