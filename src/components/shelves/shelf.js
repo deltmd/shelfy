@@ -14,8 +14,8 @@ export default class Shelf extends Component {
   }
 
   componentDidMount() {
-    axios.get(`/api/shelf/${this.props.match.params.id}`).then(res => {
-      console.log(res.data);
+    axios.get(`http://localhost:3000/api/shelf/${this.props.match.params.id}`).then(res => {
+      console.log('res.data', res.data);
       console.log('this.props.match.params.id: ', this.props.match.params.id)
       this.setState({
         binId: res.data,
@@ -33,12 +33,15 @@ export default class Shelf extends Component {
         
         <p>This is shelf {this.state.shelfId}</p>
         <p>It has this many bins: {this.state.binId.length}</p>
-        <p>bins: {{...this.state.binId}}</p>  
+         
         {
         this.state.binId.map((e, i) => {
-          <Link key={i} to={`/shelf/${this.state.shelfId}${e.id}`}>
+          console.log('map through objects');
+          return(
+          <Link key={i} to={`http://localhost:3000/api/bin/${this.state.shelfId}${e.id}`}>
             <h3>this is a bin: {i + e.productname}</h3>
           </Link>
+          )
         })
       }</div>
 
