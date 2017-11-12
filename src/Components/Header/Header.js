@@ -7,6 +7,7 @@ class Header extends Component {
     super(props)
     this.state={
       depth: this.props.depth
+      
     }
   }
   componentWillReceiveProps(props){
@@ -18,7 +19,7 @@ class Header extends Component {
   render(){
     return(
       <div>
-        {this.state.depth === 1 && <header className='header_header-wrapper1'>
+        {/* {<header name='Shelfy' className='header_header-wrapper3'>
           <img src={logo} alt=""/>
           <p>SHELFIE</p>
         </header>}
@@ -27,14 +28,14 @@ class Header extends Component {
           <div className='header_shelf_sub-header-wrapper-2'>
             <p>{this.props.shelf}</p>
           </div>
-        </header>}
-        {this.state.depth === 3 && <header className='header_header-wrapper3'>
+        </header>} */}
+        <header className='header_header-wrapper3'>
           <img src={logo} alt="" />
           <div className='header_shelf_sub-header-wrapper-3'>
-            <p>{this.props.shelf}</p>
+            <p>Shelf A</p>
           </div>
           <div className='header_shelf_sub2-header-wrapper-3'>
-            <p>{this.props.bin}</p>
+            <p>Bin 1</p>
           </div>
         </header>}
       </div>

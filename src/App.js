@@ -8,13 +8,19 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state={
-      depth: 3
+      depth: 3,
+      currentShelf: ''
     }
     this.depthHandler = this.depthHandler.bind(this);
+    this.setCurrentShelf = this.setCurrentShelf.bind(this);
   }
-  
+  setCurrentShelf(x){
+    this.setState({
+      currentShelf: x
+    })
+  }
   depthHandler(newDepth){
-    console.log('depthHandler sayeth: ', newDepth);
+    
     this.setState({
       depth: newDepth
     })
@@ -23,8 +29,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header depth={this.state.depth} shelf='Shelf A' bin='Bin 1'/>
-        <Router depthHandler={this.depthHandler}/>
+        
+        <Router depthHandler={this.depthHandler} setCurrentShelf={this.setCurrentShelf}/>
+        
       </div>
     );
   }
