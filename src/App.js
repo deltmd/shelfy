@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Header from './components/Header/Header';
+import Header from './Components/Header/Header';
 import Router from './router'
 
 import './reset.css'
@@ -14,7 +14,7 @@ class App extends Component {
   }
   
   depthHandler(newDepth){
-    console.log(newDepth);
+    console.log('depthHandler sayeth: ', newDepth);
     this.setState({
       depth: newDepth
     })
